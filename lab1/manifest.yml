@@ -4,17 +4,12 @@ kind: Pod
 
 metadata:
   labels:
-    app.kubernetes.io/name: pod-example
+    name: pod-example
   name: vault
 
 spec:
-
   containers:
-
   - name: vault
-
     image: vault
-
     ports:
-
     - containerPort: 80
