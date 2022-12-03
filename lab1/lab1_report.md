@@ -44,16 +44,21 @@ $ docker pull vault
 $ minikube start
 ```
 ![minikube start.jpg](imgs/1.png)
+
 4. В кластере была применена конфигурация к ресурсу с помощью `yaml` файла, или другими словами был создан pod на основе конфигурации файла [`./lab1/manifest.yml`](manifest.yml)
+
 ```
 $ kubectl apply -f ./lab1/manifest.yml
 > service/vault created
 ```
+
 5. Далее был создан сервис, который позволит получить доступ к поду из внешней среды. В кластере поды могут взаимодействовать друг с другом через localhost, однако, для доступа извне необходимо создать сервис и прокинуть порты.
+
 ```
 $ kubectl expose pod vault --type=NodePort --port=8200
 > service/vault exposed
 ```
+
 6. В контейнер был прокинут порт 8200, и теперь есть доступ по 8200 порту. В контейнер vault можно зайти по ссылке http://localhost:8200
 ```
 $ kubectl port-forward service/vault 8200:8200
@@ -63,6 +68,7 @@ $ kubectl port-forward service/vault 8200:8200
 > Handling connection for 8200
 > ...
 ```
+
 7. В результате выполнения предыдущего шага открылась страница логина. 
 
 ![login page.jpg](imgs/2.png)
@@ -72,9 +78,11 @@ $ kubectl port-forward service/vault 8200:8200
 ```
 $ kubectl logs vault
 ```
+
 ![logs.jpg](imgs/3.png)
 
 8. После успешного выполнения работы и входа в систему кластер был остановлен.
+
 ```
 $ minikube stop
 > ✋  Stopping node "minikube"  ...
@@ -85,8 +93,11 @@ $ minikube stop
 
 ## Результаты и выводы
 В ходе выполнения данной работы получилось создать pod на основе написанной [конфигурации](manifest.yml), создать сервис для взаимодействия с подом и зайти внутрь контейнера. На рисунке ниже изображена конфигурация работы кластера
+
 ![scheme](imgs/4.png)
+
 и контейнер в который был выполнен вход 
+
 ![result_image](imgs/5.png)
 
 В результате были изучены основы создания и развертывания конфигураций.
