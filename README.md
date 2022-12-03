@@ -16,3 +16,4 @@
 - Результаты и выводы
 
 
+**Источник:** [Лабораторные работы](https://itmo-ict-faculty.github.io/introduction-to-distributed-technologies/education/labs/)
