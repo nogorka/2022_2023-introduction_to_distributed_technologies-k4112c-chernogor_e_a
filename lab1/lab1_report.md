@@ -6,7 +6,7 @@
     Author: Chernogor Ekaterina Alekseevna
     Lab: Lab1
     Date of create: 17.11.2022
-    Date of finished: 
+    Date of finished: 03.12.2022
 
 
 # Лабораторная работа №1 "Установка Docker и Minikube, мой первый манифест."
