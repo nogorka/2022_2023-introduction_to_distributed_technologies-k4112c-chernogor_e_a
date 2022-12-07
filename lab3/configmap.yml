@@ -1,0 +1,10 @@
+apiVersion: v1
+
+kind: ConfigMap
+
+metadata:
+  name: frontend-configmap
+  
+data:
+  REACT_APP_USERNAME: "nogorka"
+  REACT_APP_COMPANY_NAME: "itmo"
