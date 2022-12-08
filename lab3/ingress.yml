@@ -3,12 +3,12 @@ kind: Ingress
 metadata:
   name: frontend-ingress
 spec:
-   tls:
-  - hosts:
-      - nogorka.com
+  tls:
+  - hosts: 
+    - nogorka.lab3
     secretName: mkcert
   rules:
-  - host: nogorka.com
+  - host: nogorka.lab3
     http: 
       paths:
       - path: /
