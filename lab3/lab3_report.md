@@ -4,7 +4,7 @@
     Year: 2022/2023
     Group: k4112c
     Author: Chernogor Ekaterina Alekseevna
-    Lab: Lab2
+    Lab: Lab3
     Date of create: 07.12.2022
     Date of finished: 
 
@@ -122,7 +122,7 @@ $ sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
 
 На рисунке ниже изображена конфигурация работы кластера
 
-![scheme](imgs/scheme.jpg)
+![scheme](imgs/scheme.png)
 
 ### Примечание
 
