@@ -6,7 +6,7 @@
     Author: Chernogor Ekaterina Alekseevna
     Lab: Lab2
     Date of create: 17.11.2022
-    Date of finished: 
+    Date of finished: 10.12.2022
 
 
 # Лабораторная работа №2 "Развертывание веб сервиса в Minikube, доступ к веб интерфейсу сервиса. Мониторинг сервиса."
