@@ -6,7 +6,7 @@
     Author: Chernogor Ekaterina Alekseevna
     Lab: Lab3
     Date of create: 07.12.2022
-    Date of finished: 
+    Date of finished: 10.11.2022
 
 
 # Лабораторная работа №3 "Сертификаты и "секреты" в Minikube, безопасное хранение данных."
