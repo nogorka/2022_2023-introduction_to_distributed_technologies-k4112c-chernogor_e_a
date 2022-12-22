@@ -22,7 +22,7 @@
 ## Ход работы
 
 ### Подготовительная работа
-1. Заливаем в кластер образы контейнеровов
+1. Заливаем в кластер образы контейнеров
 ```
 $ minikube ssh docker pull ifilyaninitmo/itdt-contained-frontend:master
 $ minikube ssh docker pull docker.io/calico/cni
@@ -31,7 +31,7 @@ $ minikube ssh docker pull docker.io/calico/pod2daemon-flexvol
 ```
 
 ### Основная работа
-1. При запуске minikube установите плагин CNI=calico и режим работы Multi-Node Clusters одновеременно, в рамках данной лабораторной работы вам нужно развернуть 2 ноды.
+1. При запуске minikube установите плагин CNI=calico и режим работы Multi-Node Clusters одновременно, в рамках данной лабораторной работы вам нужно развернуть 2 ноды.
 
 - запускаем minikube
     ```
@@ -52,7 +52,7 @@ $ minikube ssh docker pull docker.io/calico/pod2daemon-flexvol
     ```
     ![nodes_check](imgs/nodes_check.png)
 
-3. Для проверки работы Calico мы попробуем одну из функций под названием IPAM Plugin. Для проверки режима IPAM необходимо для запущеных ранее нод указать label по признаку стойки или географического расположения (на ваш выбор).
+3. Для проверки работы Calico мы попробуем одну из функций под названием IPAM Plugin. Для проверки режима IPAM необходимо для запущенных ранее нод указать label по признаку стойки или географического расположения (на ваш выбор).
     ```
     $ kubectl label nodes minikube area=irk
     > node/minikube labeled
@@ -86,7 +86,7 @@ $ minikube ssh docker pull docker.io/calico/pod2daemon-flexvol
     ```
     $ kubectl exec -i -n kube-system calicoctl -- /calicoctl get ippool
     ```
-    ![ippol_check](imgs/ippool_check.png)
+    ![ippol_check](imgs/ippool_check_advance.png)
 
 5. Вам необходимо создать deployment с 2 репликами контейнера ifilyaninitmo/itdt-contained-frontend:master и передать переменные в эти реплики: REACT_APP_USERNAME, REACT_APP_COMPANY_NAME.
 - воспользуемся [deployment](deployment.yml) из второй лабораторной
@@ -110,22 +110,22 @@ $ minikube ssh docker pull docker.io/calico/pod2daemon-flexvol
     > ...
     ```
     ![result_page](imgs/result.png)
-8. Используя kubectl exec зайдите в любой "под" и попробуйте попинговать "поды" используя FQDN имя соседенего "пода", результаты пингов необходимо приложить к отчету.
-
-    !()[]
-
-
+8. Используя kubectl exec зайдите в любой "под" и попробуйте попинговать "поды" используя FQDN имя соседнего "пода", результаты пингов необходимо приложить к отчету.
+    - пингуем от контейнера `frontend-64b7c4f89d-h8lcw` с ippool `zone-irk-ippool` к контейнеру с ippool `zone-spb-ippool`
+    ![ping_first_to_second](imgs/ping_irk_to_spb.png)
+    - пингуем от контейнера `frontend-64b7c4f89d-7647p` с ippool `zone-spb-ippool` к контейнеру с ippool `zone-irk-ippool`
+    ![ping_second_to_first](imgs/ping_spb_to_irk.png)
 
 
 ## Результаты и выводы
-В ходе выполнения данной работы
+В ходе выполнения данной работы проведено ознакомление с CNI Calico и функцией IPAM Plugin, изучены особенности работы CNI и CoreDNS. Созданы и настроены два ippool ресурса для deployment с двумя pod'ами.
 
 На рисунке ниже изображена конфигурация работы кластера
 
 ![scheme](imgs/scheme.png)
 
 ### Примечание
-1. При установке calico или проверке ippool возникает сообщение `ensure CRDs are installed first`
+1. При проверке ippool возникало сообщение `ensure CRDs are installed first`. Одной из причин такого поведения была устаревшая версия apiVersion, т.е. вместо `apiVersion: projectcalico.org/v3` использовалась `apiVersion: projectcalico.org/v1`. Однако, исправление этого момента проблему решило лишь отчасти, поэтому для взаимодействия с calico также был импортирован calicoctl.
 
 ---
 ## Ссылки на материалы
