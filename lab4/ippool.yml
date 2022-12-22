@@ -1,0 +1,19 @@
+apiVersion: projectcalico.org/v3
+kind: IPPool
+metadata:
+   name: zone-spb-ippool
+spec:
+   cidr: 192.168.0.0/24
+   ipipMode: Always
+   natOutgoing: true
+   nodeSelector: area == "spb"
+---
+apiVersion: projectcalico.org/v3
+kind: IPPool
+metadata:
+   name: zone-irk-ippool
+spec:
+   cidr: 192.168.1.0/24
+   ipipMode: Always
+   natOutgoing: true
+   nodeSelector: area == "irk"
