@@ -6,7 +6,7 @@
     Author: Chernogor Ekaterina Alekseevna
     Lab: Lab4
     Date of create: 09.12.2022
-    Date of finished:
+    Date of finished: 22.12.2022
 
 
 # Лабораторная работа №4 "Сети связи в Minikube, CNI и CoreDNS"
